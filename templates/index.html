@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Final Project</title>
+</head>
+<body>
+    <div  style="font-size: 1.4rem; text-align:center;">
+        <h1>Welcome to My Dice Game App</h3>
+        <h3>Please enter the names of two players</h4>
+        <form action="#" method="POST">
+           <span style="color:greenyellow">Player One:</span> <input type="text" name="playerOne"> <br>
+                <input type="hidden" name="p1Score" value="0">
+        <span style="color:greenyellow">Player Two:</span><input type="text" name="playerTwo"> <br>
+            <input type="hidden" name="p2Score" value="0">
+            <input type="submit" value="Register Players" name="registerPlayers" id="register">
+        </form>
+    </div>
+    
+</body>
+</html>

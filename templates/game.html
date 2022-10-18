@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>Dice Game</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+        <h1>Welcome to my Dice Game App</h1>
+        <h3>To win, you must reach a score of 20</h3>
+        <h3>If you roll a 1, you score is set to 0 and you lose your turn</h3>
+        <h3>On any turn, either play can choose to roll or pass their turn</h3>
+        </div>
+
+        <div class="score">           
+          <p> {{p1}}'s Score: {{p1Score}}              {{p2}}'s Score: {{p2Score}}</p>
+            {% if errorMsg %}
+            <p style="font-size: 1.25rem;">{{errorMsg}}</p>
+            {% else %}
+            <p style="font-size: 1.25rem;">{{successMsg}}</p>
+            {% endif %}
+        
+        </div>
+       {% if imgString %}
+        <img id="dicePic"src="{{ url_for('static', filename=imgString)}}" >
+        {% endif %}
+        
+       
+
+
+{% if p1t == True %}
+
+<p>It is now {{p1}}'s turn to roll</p>
+        {% else %}
+        <p>It is now {{p2}}'s turn to roll</p>
+        {% endif %}                
+    </div>
+    
+<div class="container">
+    <form method="post" action="{{ url_for('rollDice') }}" >
+        <button type="submit" class="butn">Roll The Dice</button>
+    </form>
+
+    <form method="post" action="{{ url_for('passTurn') }}">
+        <button type="submit" class="butn">Pass Your Turn</button>
+    </form>
+    <form method="post" action="{{ url_for('index') }}"></form>
+    <button type="submit" class="butn">EXIT GAME</button>
+    </form>
+    </div>
+</body>
+
+</html>
